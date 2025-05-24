@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="Museum Zone - Your premier luxury retail and wholesale destination in Dubai. Explore curated categories of luxury watches, perfumes, eyewear, bags, electronics, and accessories." />
@@ -12,11 +13,19 @@
   <meta property="og:url" content="https://www.museumzone.ae" />
   <meta property="og:type" content="website" />
   <title>Museum Zone | Luxury Retail & Wholesale in Dubai</title>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./public/images/logo.png" />
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Preload Important Images -->
   <link rel="preload" as="image" href="./public/images/shopImages/shopImage1.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="./public/images/banners/banner.png" fetchpriority="high">
+  <link rel="preload" as="image" href="./public/images/banners/watches-pc-1_1920x725.webp" fetchpriority="high"> 
+
+  <!-- Embedded Styles (Tailwind Base & Custom CSS) -->
   <style type="text/css">
    *,
 :after,
@@ -795,7 +804,7 @@ video {
     line-height: 1.75rem;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) { /* Desktop rules start here */
   .md\:flex {
     display: flex;
   }
@@ -846,6 +855,7 @@ video {
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
     }
+    /* Navbar Styling */
     .navbar-fixed-top {
       position: fixed;
       top: 0;
@@ -856,30 +866,36 @@ video {
       -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
+    /* Logo Styling - Reverted to original smaller sizes */
     .logo-holder img {
         height: 2.5rem;
     }
     @media (min-width: 640px) { .logo-holder img { height: 3rem; } }
-    @media (min-width: 768px) { .logo-holder img { height: 3.5rem; } }
+    @media (min-width: 769px) { .logo-holder img { height: 3.5rem; } }
+
+    /* Desktop Navigation */
     .desktop-nav { display: none; }
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         .desktop-nav { display: flex; align-items: center; }
         .desktop-nav a { color: #E5E7EB; transition: color 0.3s; font-size: 1rem; font-weight: 400; padding: 0.5rem 0.75rem; }
         .desktop-nav a:hover, .desktop-nav a.active { color: #2ECC71; }
         #mobile-nav-menu { display: none !important; }
         .hamburger { display: none !important; }
     }
+    /* Hamburger Menu Icon */
     .hamburger { z-index: 1010; }
     .hamburger .bar1, .hamburger .bar2, .hamburger .bar3 { width: 24px; height: 3px; background-color: #FFFFFF; margin: 5px 0; transition: all 0.3s ease-in-out; }
     .hamburger.active .bar1 { transform: rotate(45deg) translate(5px, 5px); }
     .hamburger.active .bar2 { opacity: 0; }
     .hamburger.active .bar3 { transform: rotate(-45deg) translate(7px, -7px); }
-     @media (max-width: 767px) {
+
+    /* Mobile Navigation Menu */
+    @media (max-width: 768px) {
         #mobile-nav-menu {
             display: none;
             flex-direction: column;
             position: fixed;
-            top: 60px; /* Adjust if navbar height changes */
+            top: 60px; /* Mobile navbar height */
             left: 0;
             width: 100%;
             background: rgba(10, 10, 10, 0.985);
@@ -897,71 +913,124 @@ video {
         #mobile-nav-menu a { display: block; padding: 1rem 0; font-size: 1.35rem; font-weight: 500; color: #E5E7EB; }
         #mobile-nav-menu a:hover, #mobile-nav-menu a.active { color: #2ECC71; }
     }
+    /* Side Navigation Indicators */
     .nav-indicator { width: 14px; height: 14px; background: #E5E7EB; border-radius: 50%; cursor: pointer; opacity: 0.6; transition: background 0.3s, transform 0.3s, opacity 0.3s; }
     .nav-indicator.active { background: #2ECC71; transform: scale(1.2); opacity: 1; }
+
+    /* Preloader */
     .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1C2526; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s ease-out; }
     .preloader.hidden { opacity: 0; visibility: hidden; }
+
+    /* Intro Section (Hero) */
     #intro { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; background-size: cover; background-position: center; z-index: 1; transition: background-image 1s ease-in-out; }
     #intro::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 1; }
     #intro > div { z-index: 2; }
-    .content-wrapper { position: relative; z-index: 2; margin-top: 100vh; background: #1C2526; }
-    .content-wrapper-1 { position: relative; z-index: 2; background: url('./public/images/background.png') no-repeat center center fixed; background-size: cover; min-height: calc(100vh - 70px); /* Adjust 70px if navbar height changes */ }
-    section { padding: 2rem 1rem; scroll-margin-top: 70px; /* Adjust if navbar height changes */ }
+
+    /* Content Wrappers */
+    .content-wrapper { /* For main page content after hero */
+      position: relative; z-index: 2; margin-top: 100vh; background: #1C2526;
+    }
+    /* Category Page Specific Wrapper - Add padding-top for fixed navbar */
+    #category-page .content-wrapper-1 {
+      position: relative;
+      z-index: 2;
+      background: url('./public/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      padding-top: 40px; /* Mobile navbar height (adjust if your mobile navbar height is different) */
+    }
+    @media (min-width: 769px) {
+      #category-page .content-wrapper-1 {
+        padding-top: 64px; /* Desktop navbar height (adjust if your desktop navbar height is different) */
+      }
+    }
+
+    /* General Section Styling */
+    section { padding: 2rem 1rem; scroll-margin-top: 70px; /* Navbar height for anchor links */ }
     #about { background: #FFFFFF; color: #1C2526; }
-    #about .about-content-holder p, #wholesale .text-gray-200, .category-page .text-gray-200 { text-align: left; line-height: 1.75; max-width: 75ch; margin-left: auto; margin-right: auto; }
+    #about .about-content-holder p, #wholesale .text-gray-200, .category-page #main-category-details .text-gray-200 { text-align: left; line-height: 1.75; max-width: 75ch; margin-left: auto; margin-right: auto; }
     #about .about-content-holder p { margin-bottom: 1em; }
-    @media (min-width: 769px) { #about .about-content-holder p, #wholesale .text-gray-200, .category-page .text-gray-200 { text-align: justify; } }
+    @media (min-width: 769px) { #about .about-content-holder p, #wholesale .text-gray-200, .category-page #main-category-details .text-gray-200 { text-align: justify; } }
     #categories, #wholesale { background: url('./public/images/background.png') no-repeat center center fixed; background-size: cover; }
+
+    /* Category Grid on Main Page */
     .category-section { display: grid; gap: 1rem; padding: 1rem; }
-    @media (max-width: 767px) { .category-section { grid-template-columns: repeat(2, 1fr); } .category-item img { height: 120px; } .category-item p { font-size: 0.7rem; } }
-    @media (min-width: 768px) { .category-section { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding: 1.5rem; } .category-item img { height: 160px; } .category-item p { font-size: 0.875rem; padding: 0.5rem; } }
+    @media (max-width: 768px) { .category-section { grid-template-columns: repeat(2, 1fr); } .category-item img { height: 120px; } .category-item p { font-size: 0.7rem; } }
+    @media (min-width: 769px) { .category-section { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding: 1.5rem; } .category-item img { height: 160px; } .category-item p { font-size: 0.875rem; padding: 0.5rem; } }
     @media (min-width: 1024px) { .category-section { grid-template-columns: repeat(3, minmax(180px, 1fr)); gap: 2rem; padding: 2rem; } }
     .category-item { background: #FFFFFF; color: #1C2526; border-radius: 0.5rem; overflow: hidden; transition: transform 0.3s ease; cursor: pointer; }
     .category-item:hover { transform: scale(1.05); }
     .category-item img { width: 100%; object-fit: cover; }
     .category-item p { text-align: center; text-transform: uppercase; font-weight: 500; margin: 0; }
+
+    /* Brand Grid on Category Page */
     #category-page .brand-section { display: grid; max-width: 1120px; margin-left: auto; margin-right: auto; padding: 1.5rem; gap: 1.5rem; }
-    @media (max-width: 767px) { #category-page .brand-section { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0.75rem; max-width: 100%; } }
-    @media (min-width: 768px) and (max-width: 1023px) { #category-page .brand-section { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 768px; } }
+    @media (max-width: 768px) { #category-page .brand-section { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0.75rem; max-width: 100%; } }
+    @media (min-width: 769px) and (max-width: 1023px) { #category-page .brand-section { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 768px; } }
     @media (min-width: 1024px) { #category-page .brand-section { grid-template-columns: repeat(auto-fit, 173px); justify-content: center; } }
     #category-page .brand-item { background: #ffffff; color: #1C2526; border-radius: 0.5rem; overflow: hidden; transition: transform 0.3s ease; cursor: pointer; display: flex; flex-direction: column; }
     #category-page .brand-item:hover { transform: scale(1.05); }
     #category-page .brand-item img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
     #category-page .brand-item p { background-color: #ffffff; font-weight: 500; text-align: center; text-transform: uppercase; margin: 0; padding: 0.4rem 0.2rem; width: 100%; display: none !important;}
-    @media (max-width: 767px) { #category-page .brand-item p { font-size: 0.6rem; } }
-    @media (min-width: 768px) and (max-width: 1023px) { #category-page .brand-item p { font-size: 0.65rem; } }
+    @media (max-width: 768px) { #category-page .brand-item p { font-size: 0.6rem; } }
+    @media (min-width: 769px) and (max-width: 1023px) { #category-page .brand-item p { font-size: 0.65rem; } }
     @media (min-width: 1024px) { #category-page .brand-item p { font-size: 0.7rem; } }
-    .banner-section { display: none; } 
+
+    /* Category Page Banner Section Styling */
+    #category-page .banner-section {
+      display: block;
+      position: relative;
+      width: 100vw;
+      margin-bottom: 1.5rem;
+      border-radius: 0;
+      overflow: hidden;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      margin-top: 0; /* Banner is first direct/indirect child of the padded .content-wrapper-1 */
+    }
+    #category-page .banner-section .slideshow-container {
+      position: relative;
+      width: 100%;
+    }
+    /* PC/LAPTOP Banner: Height is 45% of viewport height */
     @media (min-width: 769px) {
-      #category-page .banner-section {
-        display: block;
-        position: relative;
-        width: 100vw;
-        height: 40vh; /* Reverted to 40vh */
-        margin: 0 0 1.5rem 0; 
-        border-radius: 0;
-        overflow: hidden;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
+      #category-page .banner-section .slideshow-container {
+        height: 45vh; /* Set to 45vh for PC/Laptop */
       }
     }
-    .banner-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1; }
-    .slideshow-container { position: relative; width: 100%; height: 100%; }
-    .slideshow-image {
-        position: absolute;
-        top: 0; 
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center; /* Reverted to center */
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-        z-index: 0;
+    /* MOBILE Banner: Display with 1920/1450 aspect ratio */
+    @media (max-width: 768px) {
+      #category-page .banner-section .slideshow-container {
+        aspect-ratio: 1920 / 1450;
+      }
+      #category-page .banner-section {
+         margin-bottom: 1rem;
+      }
     }
-    .slideshow-image.active { opacity: 1; z-index: 1; }
+    #category-page .banner-section::before { /* Overlay */
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.35); z-index: 1;
+    }
+    #category-page .slideshow-image { /* Individual slides */
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 1s ease-in-out; z-index: 2;
+    }
+    #category-page .slideshow-image.active { opacity: 1; }
+
+    /* Category Page Content Structure */
+    #category-page #category-content {
+        padding-top: 0; /* Banner is inside this, which is inside padded .content-wrapper-1 */
+        padding-bottom: 1rem;
+    }
+    #category-page #main-category-details #category-title {
+      padding-top: 1rem;
+    }
+
+
+    /* Utility and Component Styling */
     .btn-accent { background: #2ECC71; color: #1C2526; transition: background 0.3s ease; }
     .btn-accent:hover { background: #27AE60; }
     .pulse { animation: pulse 2s infinite; } @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
@@ -969,71 +1038,65 @@ video {
     .hidden { display: none !important; }
     .error { color: #FF6B6B; font-size: 0.75rem; margin-top: 0.25rem; display: none; } .error.show { display: block; }
     .success-message { background: #2ECC71; color: #1C2526; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; text-align: center; display: none; } .success-message.show { display: block; }
+
+    /* Startup Animation */
     #startup-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000000; display: flex; justify-content: center; align-items: center; z-index: 10000; opacity: 1; transition: opacity 1s ease-out; }
     #startup-animation.hidden { opacity: 0; visibility: hidden; }
     .startup-text { text-align: center; color: #FFFFFF; } .startup-text h1 { font-size: 3rem; font-weight: bold; margin-bottom: 2rem; }
     .letter { display: inline-block; opacity: 0; transform: translateX(50px); animation: slideIn 0.5s forwards; } @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+
+    /* Watch Support Services Styling */
     #template-3-design-3 .service-card img { width: 180px; height: 180px; border-radius: 8px; }
     #template-3-design-3 .service-card { border-width: 0; } #template-3-design-3 .service-card:hover { box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); }
     .arrow { width: 24px; height: 24px; transition: transform 0.3s ease; }
     @keyframes bounce { 0%, 100% { transform: translateY(0) translateX(-50%); } 50% { transform: translateY(-10px) translateX(-50%); } }
+
+    /* Scroll Button */
     .scroll-btn {
-        position: fixed;
-        bottom: 2.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 3rem;
-        height: 3rem;
-        background: #2ECC71;
-        border-radius: 9999px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 1000;
+        position: fixed; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+        width: 3rem; height: 3rem; background: #2ECC71; border-radius: 9999px;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; z-index: 1000;
         transition: opacity 0.3s ease, visibility 0.3s ease;
-        opacity: 1;
-        visibility: visible;
+        opacity: 1; visibility: visible;
     }
-    .scroll-btn.animate-bounce-custom {
-        animation: bounce 0.5s ease-in-out 2;
-    }
+    .scroll-btn.animate-bounce-custom { animation: bounce 0.5s ease-in-out 2; }
     .scroll-btn.hidden-by-js { opacity: 0; visibility: hidden; pointer-events: none; }
     .scroll-btn:hover .arrow { transform: rotate(180deg); }
-    #category-page #main-category-details #category-title { padding-top: 1rem; }
-    #category-page #category-content { padding-top: calc(60px + 0.5rem); padding-bottom: 1rem; } 
-    @media (min-width: 768px) { #category-page #category-content { padding-top: calc(70px + 0.5rem); } } 
-    @media (max-width: 767px) { #category-page #category-content > #main-category-details { padding-top: 0; } }
-    @media (max-width: 767px) {
+
+    /* Responsive Adjustments for smaller screens within category page */
+    @media (max-width: 768px) {
       .nav-indicators { display: none !important; }
       #template-3-design-3 .service-card img { width: 100px; height: 100px; }
       #template-3-design-3 .service-card h4 { font-size: 1rem; }
       #template-3-design-3 .service-card p { font-size: 0.875rem; }
       .startup-text h1 { font-size: 2rem; }
     }
-    @media (min-width: 768px) and (max-width: 1023px) { .startup-text h1 { font-size: 4rem; } }
+    @media (min-width: 769px) and (max-width: 1023px) { .startup-text h1 { font-size: 4rem; } }
     @media (min-width: 1024px) { .startup-text h1 { font-size: 6rem; } .container { max-width: 1280px; margin: 0 auto; } }
     /* === YOUR CUSTOM CSS ENDS HERE === */
   </style>
-  <!-- External WOW.js script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 </head>
 <body class="font-roboto">
 
+  <!-- Startup Animation -->
   <div id="startup-animation">
     <div class="startup-text">
       <h1 id="startup-title" class="wow fadeInDown" data-wow-duration="1s"></h1>
     </div>
   </div>
 
+  <!-- Preloader -->
   <div id="preloader" class="preloader">
     <div class="animate-spin rounded-full h-12 w-12 border-t-4 border-white"></div>
   </div>
 
+  <!-- Navigation Bar -->
   <nav class="navbar-fixed-top text-white" role="navigation" aria-label="Main navigation">
     <div class="container mx-auto px-4 py-3 sm:py-4 flex justify-between items-center">
       <a href="#intro" id="logo" class="logo-holder" aria-label="Museum Zone Home">
-        <img src="./public/images/logo.png" alt="Museum Zone Logo" onerror="this.parentElement.innerHTML='Museum Zone'; this.remove();"> 
+        <img src="./public/images/logo.png" alt="Museum Zone Logo" onerror="this.parentElement.innerHTML='Museum Zone'; this.remove();">
       </a>
       <button class="hamburger md:hidden text-white focus:outline-none" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav-menu">
         <div class="bar1"></div>
@@ -1055,6 +1118,7 @@ video {
     </div>
   </nav>
 
+  <!-- Side Navigation Indicators (Desktop) -->
   <div class="nav-indicators hidden md:flex fixed top-1/2 right-4 transform -translate-y-1/2 flex-col gap-3 p-4 rounded-lg z-[999]">
     <div class="nav-indicator" data-section="intro" title="Home"></div>
     <div class="nav-indicator" data-section="about" title="About Us"></div>
@@ -1062,11 +1126,14 @@ video {
     <div class="nav-indicator" data-section="wholesale" title="Contact"></div>
   </div>
 
+  <!-- Scroll Down Button -->
   <div id="scroll-btn" class="scroll-btn hidden-by-js">
     <svg class="arrow w-6 h-6" fill="none" stroke="#1C2526" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
   </div>
 
+  <!-- Main Content Area (Initially Visible Part of Single Page App) -->
   <div id="main-content">
+    <!-- Hero Section -->
     <section id="intro" class="text-center flex items-center justify-center">
       <div class="wow zoomIn max-w-3xl mx-auto px-4" data-wow-duration="1s" data-wow-delay="0.5s">
         <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-white">Welcome to MUSEUM ZONE</h1>
@@ -1075,7 +1142,9 @@ video {
       </div>
     </section>
 
+    <!-- Wrapper for content that appears after hero scroll -->
     <div class="content-wrapper">
+      <!-- About Us Section -->
       <section id="about" class="text-center">
         <div class="max-w-4xl mx-auto wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
           <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-8">About Us</h2>
@@ -1088,21 +1157,23 @@ video {
         </div>
       </section>
 
+      <!-- Categories Section -->
       <section id="categories" class="text-center">
         <div class="max-w-6xl mx-auto wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
           <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-white">Categories</h2>
           <p class="text-base sm:text-lg md:text-xl mb-8 text-gray-200">Explore our curated selection of luxury products, available for both retail and wholesale purchase.</p>
           <div class="category-section">
-            <div class="category-item wow fadeIn" data-wow-delay="0.1s" data-category="watches"><img src="./public/images/banners/Category_Watches2.jpg" alt="Watches" loading="eager" onerror="this.src='./public/images/placeholder.jpg'"><p>Watches</p></div>
-            <div class="category-item wow fadeIn" data-wow-delay="0.2s" data-category="perfumes"><img src="./public/images/banners/Category_Perfumes2.jpg" alt="Perfumes" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Perfumes</p></div>
-            <div class="category-item wow fadeIn" data-wow-delay="0.3s" data-category="eyewear"><img src="./public/images/banners/Category_Eyewear2.jpg" alt="Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Eyewear</p></div>
-            <div class="category-item wow fadeIn" data-wow-delay="0.4s" data-category="bags"><img src="./public/images/banners/Category_Bags2.jpg" alt="Bags" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Bags</p></div>
+            <div class="category-item wow fadeIn" data-wow-delay="0.1s" data-category="watches"><img src="./public/images/banners/Category_Watches.jpg" alt="Watches" loading="eager" onerror="this.src='./public/images/placeholder.jpg'"><p>Watches</p></div>
+            <div class="category-item wow fadeIn" data-wow-delay="0.2s" data-category="perfumes"><img src="./public/images/banners/Category_Perfumes.jpg" alt="Perfumes" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Perfumes</p></div>
+            <div class="category-item wow fadeIn" data-wow-delay="0.3s" data-category="eyewear"><img src="./public/images/banners/Category_Eyewear.jpg" alt="Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Eyewear</p></div>
+            <div class="category-item wow fadeIn" data-wow-delay="0.4s" data-category="bags"><img src="./public/images/banners/Category_Bags.jpg" alt="Bags" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Bags</p></div>
             <div class="category-item wow fadeIn" data-wow-delay="0.5s" data-category="electronics"><img src="./public/images/banners/Category_Eletronics.jpg" alt="Electronics" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Electronics</p></div>
             <div class="category-item wow fadeIn" data-wow-delay="0.6s" data-category="accessories"><img src="./public/images/banners/Category_Accessories.jpg" alt="Accessories" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Accessories</p></div>
           </div>
         </div>
       </section>
 
+      <!-- Wholesale/Contact Section -->
       <section id="wholesale" class="text-center">
         <div class="max-w-4xl mx-auto wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
           <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-white">Wholesale Solutions</h2>
@@ -1118,11 +1189,12 @@ video {
         </div>
       </section>
 
+      <!-- Main Page Footer -->
       <footer class="bg-black text-white px-4 py-6 sm:py-8 grid md:grid-cols-2 gap-6 sm:gap-8" id="main-page-footer">
         <div class="wow fadeInUp flex flex-col justify-center items-center space-y-4 text-center" data-wow-delay="0.1s" data-wow-duration="0.8s">
           <h3 class="text-lg sm:text-xl font-semibold">Museum Zone</h3>
           <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
-            <strong>Address:</strong><br>Museum Zone<br>Near Dubai Museum, Bur Dubai<br>Dubai - UAE<br>Tel: (04) 325 8834
+            <strong>Address:</strong><br>Museum Zone<br>Near Dubai Museum, Bur Dubai<br>Dubai - UAE<br>Tel: (04) 325 8834
           </p>
         </div>
         <div class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.8s">
@@ -1130,15 +1202,21 @@ video {
         </div>
         <div class="col-span-full border-t border-gray-700 pt-4 text-center wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="0.8s"><p class="text-xs text-gray-500">© 2025 Museum Zone. All rights reserved.</p></div>
       </footer>
-    </div>
-  </div>
+    </div> <!-- End .content-wrapper -->
+  </div> <!-- End #main-content -->
 
+
+  <!-- Category Page Area (Initially Hidden) -->
   <div id="category-page" class="hidden category-page">
-    <div class="content-wrapper-1"> 
+    <div class="content-wrapper-1">
       <section id="category-content">
         <div class="banner-section">
           <div class="slideshow-container">
-            <div class="slideshow-image" id="banner1"></div><div class="slideshow-image" id="banner2"></div><div class="slideshow-image" id="banner3"></div>
+            <div class="slideshow-image" id="slideshow-image-0"></div>
+            <div class="slideshow-image" id="slideshow-image-1"></div>
+            <div class="slideshow-image" id="slideshow-image-2"></div>
+            <div class="slideshow-image" id="slideshow-image-3"></div>
+            <div class="slideshow-image" id="slideshow-image-4"></div>
           </div>
         </div>
         <div id="main-category-details" class="max-w-6xl mx-auto px-4">
@@ -1148,7 +1226,7 @@ video {
               <span class="hidden sm:inline">Back</span>
             </button>
             <h2 id="category-title" class="text-xl sm:text-2xl md:text-4xl font-bold text-white text-center flex-grow wow fadeInDown" data-wow-duration="0.5s"></h2>
-            <div class="w-12 sm:w-24"></div> 
+            <div class="w-12 sm:w-24"></div>
           </div>
           <p class="text-base sm:text-lg md:text-xl mb-8 text-gray-200 wow fadeInUp" data-wow-delay="0.2s">Discover our selection of premium brand products, available for retail and wholesale.</p>
         </div>
@@ -1175,7 +1253,7 @@ video {
             <div class="brand-item wow fadeIn" data-wow-delay="0.46s"><img src="./public/images/brands/watches/tommy-hilfiger.png" alt="Tommy Hilfiger" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Tommy Hilfiger</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.48s"><img src="./public/images/brands/watches/us-polo-assn.png" alt="U.S. Polo Assn." loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>U.S. Polo Assn.</p></div>
         </section>
-        
+
         <section id="support-section" class="hidden mb-16 bg-white rounded-lg shadow-lg py-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
             <div id="template-3-design-3">
               <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-black">Watch Support Services</h2>
@@ -1293,7 +1371,7 @@ video {
             <div class="brand-item wow fadeIn" data-wow-delay="0.76s"><img src="./public/images/brands/perfumes/yves-saint-laurent.png" alt="Yves Saint Laurent" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Yves Saint Laurent</p></div>
         </section>
 
-        <section id="eyewear-content" class="brand-section hidden"> 
+        <section id="eyewear-content" class="brand-section hidden">
             <div class="brand-item wow fadeIn" data-wow-delay="0.1s"><img src="./public/images/brands/eyewear/carrera.png" alt="Carrera Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Carrera</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.12s"><img src="./public/images/brands/eyewear/diesel.png" alt="Diesel Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Diesel</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.14s"><img src="./public/images/brands/eyewear/fossil.png" alt="Fossil Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Fossil</p></div>
@@ -1302,7 +1380,7 @@ video {
             <div class="brand-item wow fadeIn" data-wow-delay="0.2s"><img src="./public/images/brands/eyewear/oxydo.png" alt="Oxydo Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Oxydo</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.22s"><img src="./public/images/brands/eyewear/polaroid.png" alt="Polaroid Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Polaroid</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.24s"><img src="./public/images/brands/eyewear/police.png" alt="Police Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Police</p></div>
-            <div class="brand-item wow fadeIn" data-wow-delay="0.26s"><img src="./public/images/brands/eyewear/rayban.png" alt="Ray-Ban Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Ray-Ban</p></div> 
+            <div class="brand-item wow fadeIn" data-wow-delay="0.26s"><img src="./public/images/brands/eyewear/rayban.png" alt="Ray-Ban Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Ray-Ban</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.28s"><img src="./public/images/brands/eyewear/skechers.png" alt="Skechers Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Skechers</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.3s"><img src="./public/images/brands/eyewear/timberland.png" alt="Timberland Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Timberland</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.32s"><img src="./public/images/brands/eyewear/tom-ford.png" alt="Tom Ford Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Tom Ford</p></div>
@@ -1326,7 +1404,7 @@ video {
             <div class="brand-item animate__animated animate__fadeIn" data-wow-delay="1.2s"><img src="./public/images/brands/bags/us-polo-assn.png" alt="U.S. Polo Assn. Bag" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>U.S. Polo Assn.</p></div>
         </section>
 
-        <section id="electronics-content" class="brand-section hidden"> 
+        <section id="electronics-content" class="brand-section hidden">
             <div class="brand-item wow fadeIn" data-wow-delay="0.1s"><img src="./public/images/brands/electronics/anker.jpg" alt="Anker Electronics" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Anker</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.12s"><img src="./public/images/brands/electronics/apple.jpg" alt="Apple Electronics" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Apple</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.14s"><img src="./public/images/brands/electronics/huawei.jpg" alt="Huawei Electronics" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Huawei</p></div>
@@ -1336,10 +1414,10 @@ video {
             <div class="brand-item wow fadeIn" data-wow-delay="0.22s"><img src="./public/images/brands/electronics/oppo.jpg" alt="Oppo Electronics" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Oppo</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.24s"><img src="./public/images/brands/electronics/samsung.jpg" alt="Samsung Electronics" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Samsung</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.26s"><img src="./public/images/brands/electronics/sony.jpg" alt="Sony Electronics" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Sony</p></div>
-            <div class="brand-item wow fadeIn" data-wow-delay="0.28s"><img src="./public/images/brands/electronics/xiaomi.jpg" alt="Xiaomi Electronics" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Xiaomi</p></div>  
+            <div class="brand-item wow fadeIn" data-wow-delay="0.28s"><img src="./public/images/brands/electronics/xiaomi.jpg" alt="Xiaomi Electronics" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Xiaomi</p></div>
         </section>
 
-        <section id="accessories-content" class="brand-section hidden"> 
+        <section id="accessories-content" class="brand-section hidden">
             <div class="brand-item wow fadeIn" data-wow-delay="0.1s"><img src="./public/images/brands/accessories/anne-klein.png" alt="Anne Klein Accessories" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Anne Klein</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.12s"><img src="./public/images/brands/accessories/armani-exchange.png" alt="Armani Exchange Accessories" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Armani Exchange</p></div>
             <div class="brand-item wow fadeIn" data-wow-delay="0.14s"><img src="./public/images/brands/accessories/coach.png" alt="Coach Accessories" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Coach</p></div>
@@ -1354,11 +1432,12 @@ video {
             <div class="brand-item wow fadeIn" data-wow-delay="0.32s"><img src="./public/images/brands/accessories/us-polo-assn.png" alt="U.S. Polo Assn. Accessories" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>U.S. Polo Assn.</p></div>
         </section>
       </section>
+
       <footer class="bg-black text-white px-4 py-6 sm:py-8 grid md:grid-cols-2 gap-6 sm:gap-8" id="category-page-footer">
         <div class="wow fadeInUp flex flex-col justify-center items-center space-y-4 text-center" data-wow-delay="0.1s" data-wow-duration="0.8s">
           <h3 class="text-lg sm:text-xl font-semibold">Museum Zone</h3>
           <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
-            <strong>Address:</strong><br>Museum Zone<br>Near Dubai Museum, Bur Dubai<br>Dubai - UAE<br>Tel: (04) 325 8834
+            <strong>Address:</strong><br>Museum Zone<br>Near Dubai Museum, Bur Dubai<br>Dubai - UAE<br>Tel: (04) 325 8834
           </p>
         </div>
         <div class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.8s">
@@ -1370,7 +1449,363 @@ video {
   </div>
 
   <script>
-"use strict";let wowInstance,startupAnimationCompleted=!1,initialScrollButtonAnimationDone=!1;function initializeWOW(){"function"==typeof WOW?(wowInstance=new WOW({mobile:!0,live:!0,offset:30})).init():console.error("WOW.js not loaded")}const navbarEl=document.querySelector(".navbar-fixed-top"),mobileNavMenuEl=document.getElementById("mobile-nav-menu"),hamburgerEl=document.querySelector(".hamburger"),mainContentEl=document.getElementById("main-content"),categoryPageEl=document.getElementById("category-page"),scrollBtnEl=document.getElementById("scroll-btn"),introSectionEl=document.getElementById("intro"),logoEl=document.getElementById("logo"),navLinksArr=document.querySelectorAll(".nav-link"),indicatorsArr=document.querySelectorAll(".nav-indicator"),categoryTitleElem=document.getElementById("category-title"),backBtnEl=document.getElementById("back-btn"),categoryBrandSectionsNodeList=document.querySelectorAll("#category-page .brand-section"),mapIframeOriginalSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1804.1007023612674!2d55.29632758147585!3d25.26380943330753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f433f2f9aa46f%3A0xe5dcbdfc346ea9a0!2sMuseum%20Zone!5e0!3m2!1sen!2sin!4v1746981367667!5m2!1sen!2sin",categoriesData={watches:{title:"Watches",banners:["./public/images/banners/banner.png","./public/images/banners/banner.png","./public/images/banners/banner.png"]},perfumes:{title:"Perfumes",banners:["./public/images/banners/banner.png","./public/images/banners/banner.png","./public/images/banners/banner.png"]},eyewear:{title:"Eyewear",banners:["./public/images/banners/banner.png","./public/images/banners/banner.png","./public/images/banners/banner.png"]},bags:{title:"Bags",banners:["./public/images/banners/banner.png","./public/images/banners/banner.png","./public/images/banners/banner.png"]},electronics:{title:"Electronics",banners:["./public/images/banners/banner.png","./public/images/banners/banner.png","./public/images/banners/banner.png"]},accessories:{title:"Accessories",banners:["./public/images/banners/banner.png","./public/images/banners/banner.png","./public/images/banners/banner.png"]}};function preloadIntroImages(){const e="./public/images/shopImages/";if(window.innerWidth<=768){const t=new Image;t.src=`${e}shopImage1.webp`,t.onerror=()=>console.warn(`Fallback: Failed to preload intro image: ${t.src}`)}else{[`${e}shopImage1.webp`,`${e}shopImage2.webp`,`${e}shopImage3.webp`].forEach(e=>{const t=new Image;t.src=e,t.onerror=()=>console.warn(`Fallback: Failed to preload intro image: ${e}`)})}}function preloadBrandLogos(){document.querySelectorAll("#category-page .brand-item img").forEach(e=>{if(e.getAttribute("src")){new Image().src=e.getAttribute("src")}}) }function initializeMapForVisibleSection(){let e;mainContentEl&&!mainContentEl.classList.contains("hidden")?e=mainContentEl:categoryPageEl&&!categoryPageEl.classList.contains("hidden")&&(e=categoryPageEl);const t=e?.querySelector('iframe[title="Museum Zone Location"]');t&&!t.getAttribute("src")&&(t.setAttribute("src",mapIframeOriginalSrc),console.log(`Map initialized for visible section: ${e.id}`))}document.addEventListener("DOMContentLoaded",()=>{try{const e=document.getElementById("preloader");e?(e.classList.add("hidden"),setTimeout(()=>{e.style.display="none",runStartupAnimation()},500)):runStartupAnimation()}catch(e){console.error("Preloader error:",e),runStartupAnimation()}setupImageFallbacks(),setupIntroSlideshow(),handleScrollButtonVisibility(),initializeMapForVisibleSection(),history.scrollRestoration&&(history.scrollRestoration="manual"),window.scrollTo(0,0),mainContentEl&&!mainContentEl.classList.contains("hidden")&&updateActiveNav("intro"),"function"==typeof requestIdleCallback?requestIdleCallback(preloadBrandLogos):setTimeout(preloadBrandLogos,3e3)}),window.onbeforeunload=function(){window.scrollTo(0,0)};function runStartupAnimation(){try{const e=document.getElementById("startup-animation");if(!e)return void initializeWOW();const t=sessionStorage.getItem("lastAnimationTime"),a=Date.now();if(t&&a-t<3e5&&!sessionStorage.getItem("forceStartup"))return e.style.display="none",void initializeWOW();sessionStorage.removeItem("forceStartup");const o=document.getElementById("startup-title");if(!o)return e.style.display="none",void initializeWOW();o.innerHTML="Museum Zone".split("").map((e,t)=>`<span class="letter" style="animation-delay: ${t*.05}s">${" "===e?" ":e}</span>`).join(""),e.classList.remove("hidden"),e.style.opacity="1",e.style.visibility="visible",preloadIntroImages(),setTimeout(()=>{e.classList.add("hidden"),setTimeout(()=>{e.style.display="none",sessionStorage.setItem("lastAnimationTime",a),initializeWOW(),startupAnimationCompleted=!0,handleScrollButtonVisibility()},1e3)},2500)}catch(t){console.error("Startup animation error:",t);const a=document.getElementById("startup-animation");a&&(a.style.display="none"),initializeWOW()}}hamburgerEl&&mobileNavMenuEl&&hamburgerEl.addEventListener("click",()=>{const e=hamburgerEl.classList.toggle("active");mobileNavMenuEl.classList.toggle("active",e),hamburgerEl.setAttribute("aria-expanded",e),document.body.style.overflow=e?"hidden":""});function handleScrollButtonVisibility(){if(!scrollBtnEl||!introSectionEl||!mainContentEl)return;const e=mainContentEl&&!mainContentEl.classList.contains("hidden"),t=window.scrollY<10;e&&t?(scrollBtnEl.classList.remove("hidden-by-js"),startupAnimationCompleted&&!initialScrollButtonAnimationDone&&(scrollBtnEl.classList.add("animate-bounce-custom"),setTimeout(()=>scrollBtnEl.classList.remove("animate-bounce-custom"),1e3),initialScrollButtonAnimationDone=!0)):scrollBtnEl.classList.add("hidden-by-js")}scrollBtnEl&&(scrollBtnEl.addEventListener("click",e=>{e.preventDefault(),scrollBtnEl.classList.add("hidden-by-js"),scrollToSection("about","smooth")}),window.addEventListener("scroll",handleScrollButtonVisibility,{passive:!0})),document.querySelectorAll(".nav-link").forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();const a=this.dataset.section;let o="smooth";categoryPageEl&&!categoryPageEl.classList.contains("hidden")?(categoryPageEl.classList.add("hidden"),mainContentEl&&mainContentEl.classList.remove("hidden"),o="auto",wowInstance&&wowInstance.sync()):initializeMapForVisibleSection(),scrollToSection(a,o),mobileNavMenuEl&&mobileNavMenuEl.classList.contains("active")&&(mobileNavMenuEl.classList.remove("active"),hamburgerEl&&hamburgerEl.classList.remove("active"),hamburgerEl&&hamburgerEl.setAttribute("aria-expanded","false"),document.body.style.overflow=""),updateActiveNav(a)})}),logoEl&&logoEl.addEventListener("click",e=>{e.preventDefault(),categoryPageEl&&!categoryPageEl.classList.contains("hidden")&&(categoryPageEl.classList.add("hidden"),mainContentEl&&mainContentEl.classList.remove("hidden"),wowInstance&&wowInstance.sync()),scrollToSection("intro","smooth"),updateActiveNav("intro"),initializeMapForVisibleSection(),mobileNavMenuEl&&mobileNavMenuEl.classList.contains("active")&&(mobileNavMenuEl.classList.remove("active"),hamburgerEl&&hamburgerEl.classList.remove("active"),hamburgerEl&&hamburgerEl.setAttribute("aria-expanded","false"),document.body.style.overflow="")}),indicatorsArr.forEach(e=>{e.addEventListener("click",()=>{const t=e.dataset.section;categoryPageEl&&!categoryPageEl.classList.contains("hidden")&&(categoryPageEl.classList.add("hidden"),mainContentEl&&mainContentEl.classList.remove("hidden"),wowInstance&&wowInstance.sync()),scrollToSection(t),updateActiveNav(t),initializeMapForVisibleSection()})});const mainPageSectionsNodeList=document.querySelectorAll("#main-content > section"),observerObj=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&mainContentEl&&!mainContentEl.classList.contains("hidden")&&updateActiveNav(e.target.id)})},{threshold:.3,rootMargin:`-${navbarEl?navbarEl.offsetHeight:70}px 0px -30% 0px`});function scrollToSection(e,t="smooth"){const a=navbarEl?navbarEl.offsetHeight:70,o=document.getElementById(e);if(o){let n=0;"intro"!==e&&(n=o.getBoundingClientRect().top+window.pageYOffset-a),window.scrollTo({top:n,behavior:t})}else console.warn(`Section ${e} not found for scroll.`)}mainPageSectionsNodeList.forEach(e=>{e&&observerObj.observe(e)});const discoverMoreBtnEl=document.querySelector("#intro .btn-accent");function handleCategoryClick(){const e=this.dataset.category;e&&renderCategoryPage(e)}function setupIntroSlideshow(){const e=document.getElementById("intro");if(!e)return;const t="./public/images/shopImages/";if(window.innerWidth<=768)return void(e.style.backgroundImage=`url('${t}shopImage1.webp')`);const a=[`${t}shopImage1.webp`,`${t}shopImage2.webp`,`${t}shopImage3.webp`];let o=0;e.style.backgroundImage=`url('${a[0]}')`,setInterval(()=>{o=(o+1)%a.length,e.style.backgroundImage=`url('${a[o]}')`},5e3)}function renderCategoryPage(e){const t=categoriesData[e];if(!t)return void console.error(`Category ${e} not found`);categoryTitleElem&&(categoryTitleElem.textContent=t.title),categoryBrandSectionsNodeList.forEach(e=>{e&&e.classList.add("hidden")});const a=document.getElementById("support-section");a&&a.classList.add("hidden");const o=`${e}-content`,n=document.getElementById(o);n?n.classList.remove("hidden"):console.warn(`Content section for ${e} (ID: ${o}) not found.`);const i=document.querySelector("#category-page .banner-section");window.innerWidth>768?(i&&(i.style.display="block"),setupBannerSlideshow(t.banners)):i&&(i.style.display="none"),a&&a.classList.toggle("hidden","watches"!==e),mainContentEl&&mainContentEl.classList.add("hidden"),categoryPageEl&&categoryPageEl.classList.remove("hidden"),window.scrollTo({top:0,behavior:"auto"}),updateActiveNav("categories"),handleScrollButtonVisibility(),wowInstance&&wowInstance.sync(),initializeMapForVisibleSection()}function updateActiveNav(e){document.querySelectorAll(".nav-link").forEach(t=>{t.classList.remove("active");const a=t.dataset.section;(a===e||categoriesData.hasOwnProperty(e)&&"categories"===a)&&t.classList.add("active")}),window.innerWidth>=768&&indicatorsArr.forEach(t=>{t.classList.remove("active");const a=t.dataset.section;(a===e||categoriesData.hasOwnProperty(e)&&"categories"===a)&&t.classList.add("active")})}discoverMoreBtnEl&&discoverMoreBtnEl.addEventListener("click",e=>{e.preventDefault(),scrollToSection("about","smooth"),scrollBtnEl&&scrollBtnEl.classList.add("hidden-by-js"),updateActiveNav("about")}),document.querySelectorAll(".category-item").forEach(e=>{e.removeEventListener("click",handleCategoryClick),e.addEventListener("click",handleCategoryClick)}),backBtnEl&&backBtnEl.addEventListener("click",()=>{categoryPageEl&&categoryPageEl.classList.add("hidden"),mainContentEl&&mainContentEl.classList.remove("hidden"),categoryBrandSectionsNodeList.forEach(e=>{e&&e.classList.add("hidden")});const e=document.getElementById("support-section");e&&e.classList.add("hidden"),scrollToSection("categories","smooth"),updateActiveNav("categories"),handleScrollButtonVisibility(),wowInstance&&wowInstance.sync(),initializeMapForVisibleSection()});let bannerSlideshowIntervalId=null;function setupBannerSlideshow(e){const t=document.querySelector("#category-page .slideshow-container");if(window.innerWidth<=768||!t)return void(t&&(t.style.display="none"));t&&(t.style.display="block");const a=["banner1","banner2","banner3"].map(e=>document.getElementById(e)).filter(e=>e);if(0===a.length||!e||0===e.length)return void console.warn("Banner elements/data missing.");let o=0;bannerSlideshowIntervalId&&clearInterval(bannerSlideshowIntervalId),e.forEach((e,t)=>{if(a[t]){const o=new Image;o.src=e,o.onload=()=>a[t].style.backgroundImage=`url('${e}')`,o.onerror=()=>a[t].style.backgroundImage="url('./public/images/placeholder.jpg')"}}),a.forEach(e=>{e.style.opacity="0",e.style.zIndex="0"}),a[0]&&(a[0].style.opacity="1",a[0].style.zIndex="1"),o=0,bannerSlideshowIntervalId=setInterval(()=>{a[o]&&(a[o].style.opacity="0",a[o].style.zIndex="0"),o=(o+1)%Math.min(e.length,a.length),a[o]&&(a[o].style.opacity="1",a[o].style.zIndex="1")},5e3)}const submitBtnEl=document.getElementById("submit-form");function setupImageFallbacks(){document.querySelectorAll("img").forEach(e=>{const t=e.src||e.getAttribute("data-src");e.onerror=function(){if(this.src.includes("placeholder.jpg"))return void(this.onerror=null);this.src="./public/images/placeholder.jpg",console.warn(`Image failed to load, using placeholder: ${t}`)}})}submitBtnEl,document.querySelectorAll("#category-page .brand-item").forEach(e=>{e.addEventListener("click",e=>{e.preventDefault(),categoryPageEl&&categoryPageEl.classList.add("hidden"),mainContentEl&&mainContentEl.classList.remove("hidden"),categoryBrandSectionsNodeList.forEach(e=>{e&&e.classList.add("hidden")});const t=document.getElementById("support-section");t&&t.classList.add("hidden"),scrollToSection("wholesale","smooth"),updateActiveNav("wholesale"),handleScrollButtonVisibility(),initializeMapForVisibleSection(),mobileNavMenuEl&&mobileNavMenuEl.classList.contains("active")&&(mobileNavMenuEl.classList.remove("active"),hamburgerEl&&hamburgerEl.classList.remove("active"),hamburgerEl&&hamburgerEl.setAttribute("aria-expanded","false"),document.body.style.overflow=""),wowInstance&&wowInstance.sync()})});
+"use strict";
+let wowInstance, startupAnimationCompleted = !1, initialScrollButtonAnimationDone = !1;
+
+function initializeWOW() {
+    "function" == typeof WOW ? (wowInstance = new WOW({ mobile: !0, live: !0, offset: 30 })).init() : console.error("WOW.js not loaded")
+}
+const navbarEl = document.querySelector(".navbar-fixed-top"),
+    mobileNavMenuEl = document.getElementById("mobile-nav-menu"),
+    hamburgerEl = document.querySelector(".hamburger"),
+    mainContentEl = document.getElementById("main-content"),
+    categoryPageEl = document.getElementById("category-page"),
+    scrollBtnEl = document.getElementById("scroll-btn"),
+    introSectionEl = document.getElementById("intro"),
+    logoEl = document.getElementById("logo"),
+    navLinksArr = document.querySelectorAll(".nav-link"),
+    indicatorsArr = document.querySelectorAll(".nav-indicator"),
+    categoryTitleElem = document.getElementById("category-title"),
+    backBtnEl = document.getElementById("back-btn"),
+    categoryBrandSectionsNodeList = document.querySelectorAll("#category-page .brand-section"),
+    mapIframeOriginalSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1804.1007023612674!2d55.29632758147585!3d25.26380943330753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f433f2f9aa46f%3A0xe5dcbdfc346ea9a0!2sMuseum%20Zone!5e0!3m2!1sen!2sin!4v1746981367667!5m2!1sen!2sin";
+
+// PC images source e.g., 1920x725px. Mobile images source e.g., 1920x1450px. (Now 4 images per view)
+const categoriesData = {
+    watches: {
+        title: "Watches",
+        pcBanners: [ // Max 4 for PC
+            "./public/images/banners/watches-pc-1.png",
+            "./public/images/banners/watches-pc-2.png",
+            "./public/images/banners/watches-pc-3.png",
+            "./public/images/banners/watches-pc-4.png"
+        ],
+        mobileBanners: [ // Max 4 for Mobile
+            "./public/images/banners/watches-mobile-1.jpg",
+            "./public/images/banners/watches-mobile-2.jpg",
+            "./public/images/banners/watches-mobile-3.jpg",
+            "./public/images/banners/watches-mobile-4.jpg"
+        ]
+    },
+    perfumes: {
+        title: "Perfumes",
+        pcBanners: [
+            "./public/images/banners/perfumes-pc-1_1920x725.webp",
+            "./public/images/banners/perfumes-pc-2_1920x725.webp",
+            "./public/images/banners/perfumes-pc-3_1920x725.webp",
+            "./public/images/banners/perfumes-pc-4_1920x725.webp"
+        ],
+        mobileBanners: [
+            "./public/images/banners/perfumes-mobile-1.jpg",
+            "./public/images/banners/perfumes-mobile-2.jpg",
+            "./public/images/banners/perfumes-mobile-3.jpg",
+            "./public/images/banners/perfumes-mobile-4.jpg"
+        ]
+    },
+    eyewear: {
+        title: "Eyewear",
+        pcBanners: [
+            "./public/images/banners/eyewear-pc-1.png",
+            "./public/images/banners/eyewear-pc-2.png",
+            "./public/images/banners/eyewear-pc-3.png",
+            "./public/images/banners/eyewear-pc-4.png"
+        ],
+        mobileBanners: [
+            "./public/images/banners/eyewear-mobile-1.jpg",
+            "./public/images/banners/eyewear-mobile-2.jpg",
+            "./public/images/banners/eyewear-mobile-3.jpg",
+            "./public/images/banners/eyewear-mobile-4.jpg"
+        ]
+    },
+    bags: {
+        title: "Bags",
+        pcBanners: [
+            "./public/images/banners/bags-pc-1.png",
+            "./public/images/banners/bags-pc-2.png",
+            "./public/images/banners/bags-pc-3.png",
+            "./public/images/banners/bags-pc-4.png"
+        ],
+        mobileBanners: [
+            "./public/images/banners/bags-mobile-1.jpg",
+            "./public/images/banners/bags-mobile-2.jpg",
+            "./public/images/banners/bags-mobile-3.jpg",
+            "./public/images/banners/bags-mobile-4.jpg"
+        ]
+    },
+    electronics: {
+        title: "Electronics",
+        pcBanners: [
+            "./public/images/banners/electronics-pc-1.png",
+            "./public/images/banners/electronics-pc-2.png",
+            "./public/images/banners/electronics-pc-3.png",
+            "./public/images/banners/electronics-pc-4.png"
+        ],
+        mobileBanners: [
+            "./public/images/banners/electronics-mobile-1.jpg",
+            "./public/images/banners/electronics-mobile-2.jpg",
+            "./public/images/banners/electronics-mobile-3.jpg",
+            "./public/images/banners/electronics-mobile-4.jpg"
+        ]
+    },
+    accessories: {
+        title: "Accessories",
+        pcBanners: [
+            "./public/images/banners/accessories-pc-1.png",
+            "./public/images/banners/accessories-pc-2.png",
+            "./public/images/banners/accessories-pc-3.png",
+            "./public/images/banners/accessories-pc-4.png"
+        ],
+        mobileBanners: [
+            "./public/images/banners/accessories-mobile-1.jpg",
+            "./public/images/banners/accessories-mobile-2.jpg",
+            "./public/images/banners/accessories-mobile-3.jpg",
+            "./public/images/banners/accessories-mobile-4.jpg"
+        ]
+    }
+};
+
+
+function preloadIntroImages() {
+    const e = "./public/images/shopImages/";
+    if (window.innerWidth <= 768) {
+        const t = new Image;
+        t.src = `${e}shopImage1.webp`, t.onerror = () => console.warn(`Fallback: Failed to preload intro image: ${t.src}`)
+    } else {
+        [`${e}shopImage1.webp`, `${e}shopImage2.webp`, `${e}shopImage3.webp`].forEach(e => {
+            const t = new Image;
+            t.src = e, t.onerror = () => console.warn(`Fallback: Failed to preload intro image: ${e}`)
+        })
+    }
+}
+
+function preloadBrandLogos() {
+    document.querySelectorAll("#category-page .brand-item img").forEach(e => {
+        if (e.getAttribute("src")) { new Image().src = e.getAttribute("src") }
+    })
+}
+
+function initializeMapForVisibleSection() {
+    let e;
+    mainContentEl && !mainContentEl.classList.contains("hidden") ? e = mainContentEl : categoryPageEl && !categoryPageEl.classList.contains("hidden") && (e = categoryPageEl);
+    const t = e?.querySelector('iframe[title="Museum Zone Location"]');
+    t && !t.getAttribute("src") && (t.setAttribute("src", mapIframeOriginalSrc), console.log(`Map initialized for visible section: ${e.id}`))
+}
+document.addEventListener("DOMContentLoaded", () => {
+    try {
+        const e = document.getElementById("preloader");
+        e ? (e.classList.add("hidden"), setTimeout(() => { e.style.display = "none", runStartupAnimation() }, 500)) : runStartupAnimation()
+    } catch (e) { console.error("Preloader error:", e), runStartupAnimation() }
+    setupImageFallbacks(), setupIntroSlideshow(), handleScrollButtonVisibility(), initializeMapForVisibleSection(), history.scrollRestoration && (history.scrollRestoration = "manual"), window.scrollTo(0, 0), mainContentEl && !mainContentEl.classList.contains("hidden") && updateActiveNav("intro"), "function" == typeof requestIdleCallback ? requestIdleCallback(preloadBrandLogos) : setTimeout(preloadBrandLogos, 3e3)
+}), window.onbeforeunload = function() { window.scrollTo(0, 0) };
+
+function runStartupAnimation() {
+    try {
+        const e = document.getElementById("startup-animation");
+        if (!e) return void initializeWOW();
+        const t = sessionStorage.getItem("lastAnimationTime"),
+            a = Date.now();
+        if (t && a - t < 3e5 && !sessionStorage.getItem("forceStartup")) return e.style.display = "none", void initializeWOW();
+        sessionStorage.removeItem("forceStartup");
+        const o = document.getElementById("startup-title");
+        if (!o) return e.style.display = "none", void initializeWOW();
+        o.innerHTML = "Museum Zone".split("").map((e, t) => `<span class="letter" style="animation-delay: ${t*.05}s">${" "===e?"&nbsp;":e}</span>`).join(""), e.classList.remove("hidden"), e.style.opacity = "1", e.style.visibility = "visible", preloadIntroImages(), setTimeout(() => { e.classList.add("hidden"), setTimeout(() => { e.style.display = "none", sessionStorage.setItem("lastAnimationTime", a), initializeWOW(), startupAnimationCompleted = !0, handleScrollButtonVisibility() }, 1e3) }, 2500)
+    } catch (t) {
+        console.error("Startup animation error:", t);
+        const a = document.getElementById("startup-animation");
+        a && (a.style.display = "none"), initializeWOW()
+    }
+}
+hamburgerEl && mobileNavMenuEl && hamburgerEl.addEventListener("click", () => {
+    const e = hamburgerEl.classList.toggle("active");
+    mobileNavMenuEl.classList.toggle("active", e), hamburgerEl.setAttribute("aria-expanded", e), document.body.style.overflow = e ? "hidden" : ""
+});
+
+function handleScrollButtonVisibility() {
+    if (!scrollBtnEl || !introSectionEl || !mainContentEl) return;
+    const e = mainContentEl && !mainContentEl.classList.contains("hidden"),
+        t = window.scrollY < 10;
+    e && t ? (scrollBtnEl.classList.remove("hidden-by-js"), startupAnimationCompleted && !initialScrollButtonAnimationDone && (scrollBtnEl.classList.add("animate-bounce-custom"), setTimeout(() => scrollBtnEl.classList.remove("animate-bounce-custom"), 1e3), initialScrollButtonAnimationDone = !0)) : scrollBtnEl.classList.add("hidden-by-js")
+}
+scrollBtnEl && (scrollBtnEl.addEventListener("click", e => { e.preventDefault(), scrollBtnEl.classList.add("hidden-by-js"), scrollToSection("about", "smooth") }), window.addEventListener("scroll", handleScrollButtonVisibility, { passive: !0 })), document.querySelectorAll(".nav-link").forEach(e => {
+    e.addEventListener("click", function(t) {
+        t.preventDefault();
+        const a = this.dataset.section;
+        let o = "smooth";
+        categoryPageEl && !categoryPageEl.classList.contains("hidden") ? (categoryPageEl.classList.add("hidden"), mainContentEl && mainContentEl.classList.remove("hidden"), o = "auto", wowInstance && wowInstance.sync()) : initializeMapForVisibleSection(), scrollToSection(a, o), mobileNavMenuEl && mobileNavMenuEl.classList.contains("active") && (mobileNavMenuEl.classList.remove("active"), hamburgerEl && hamburgerEl.classList.remove("active"), hamburgerEl && hamburgerEl.setAttribute("aria-expanded", "false"), document.body.style.overflow = ""), updateActiveNav(a)
+    })
+}), logoEl && logoEl.addEventListener("click", e => { e.preventDefault(), categoryPageEl && !categoryPageEl.classList.contains("hidden") && (categoryPageEl.classList.add("hidden"), mainContentEl && mainContentEl.classList.remove("hidden"), wowInstance && wowInstance.sync()), scrollToSection("intro", "smooth"), updateActiveNav("intro"), initializeMapForVisibleSection(), mobileNavMenuEl && mobileNavMenuEl.classList.contains("active") && (mobileNavMenuEl.classList.remove("active"), hamburgerEl && hamburgerEl.classList.remove("active"), hamburgerEl && hamburgerEl.setAttribute("aria-expanded", "false"), document.body.style.overflow = "") }), indicatorsArr.forEach(e => { e.addEventListener("click", () => { const t = e.dataset.section;
+        categoryPageEl && !categoryPageEl.classList.contains("hidden") && (categoryPageEl.classList.add("hidden"), mainContentEl && mainContentEl.classList.remove("hidden"), wowInstance && wowInstance.sync()), scrollToSection(t), updateActiveNav(t), initializeMapForVisibleSection() }) });
+const mainPageSectionsNodeList = document.querySelectorAll("#main-content > section"),
+    observerObj = new IntersectionObserver(e => { e.forEach(e => { e.isIntersecting && mainContentEl && !mainContentEl.classList.contains("hidden") && updateActiveNav(e.target.id) }) }, { threshold: .3, rootMargin: `-${navbarEl?navbarEl.offsetHeight:70}px 0px -30% 0px` });
+
+function scrollToSection(e, t = "smooth") {
+    const a = navbarEl ? navbarEl.offsetHeight : 70,
+        o = document.getElementById(e);
+    if (o) { let n = 0; "intro" !== e && (n = o.getBoundingClientRect().top + window.pageYOffset - a), window.scrollTo({ top: n, behavior: t }) } else console.warn(`Section ${e} not found for scroll.`)
+}
+mainPageSectionsNodeList.forEach(e => { e && observerObj.observe(e) });
+const discoverMoreBtnEl = document.querySelector("#intro .btn-accent");
+
+function handleCategoryClick() { const e = this.dataset.category;
+    e && renderCategoryPage(e) }
+
+function setupIntroSlideshow() {
+    const e = document.getElementById("intro");
+    if (!e) return;
+    const t = "./public/images/shopImages/";
+    if (window.innerWidth <= 768) {
+        e.style.backgroundImage = `url('${t}shopImage1.webp')`;
+        return;
+    }
+    const a = [`${t}shopImage1.webp`, `${t}shopImage2.webp`, `${t}shopImage3.webp`];
+    let o = 0;
+    e.style.backgroundImage = `url('${a[0]}')`;
+    setInterval(() => { o = (o + 1) % a.length, e.style.backgroundImage = `url('${a[o]}')` }, 5e3);
+}
+
+function renderCategoryPage(e) {
+    const t = categoriesData[e];
+    if (!t) return void console.error(`Category ${e} not found`);
+    categoryTitleElem && (categoryTitleElem.textContent = t.title), categoryBrandSectionsNodeList.forEach(e => { e && e.classList.add("hidden") });
+    const a = document.getElementById("support-section");
+    a && a.classList.add("hidden");
+    const o = `${e}-content`,
+        n = document.getElementById(o);
+    n ? n.classList.remove("hidden") : console.warn(`Content section for ${e} (ID: ${o}) not found.`);
+
+    setupBannerSlideshow(t);
+
+    a && a.classList.toggle("hidden", "watches" !== e), mainContentEl && mainContentEl.classList.add("hidden"), categoryPageEl && categoryPageEl.classList.remove("hidden"), window.scrollTo({ top: 0, behavior: "auto" }), updateActiveNav("categories"), handleScrollButtonVisibility(), wowInstance && wowInstance.sync(), initializeMapForVisibleSection()
+}
+
+function updateActiveNav(e) {
+    document.querySelectorAll(".nav-link").forEach(t => { t.classList.remove("active"); const a = t.dataset.section;
+        (a === e || categoriesData.hasOwnProperty(e) && "categories" === a) && t.classList.add("active") });
+
+    if (window.innerWidth >= 769) {
+        indicatorsArr.forEach(t => { t.classList.remove("active"); const a = t.dataset.section;
+            (a === e || categoriesData.hasOwnProperty(e) && "categories" === a) && t.classList.add("active") })
+    }
+}
+discoverMoreBtnEl && discoverMoreBtnEl.addEventListener("click", e => { e.preventDefault(), scrollToSection("about", "smooth"), scrollBtnEl && scrollBtnEl.classList.add("hidden-by-js"), updateActiveNav("about") }), document.querySelectorAll(".category-item").forEach(e => { e.removeEventListener("click", handleCategoryClick), e.addEventListener("click", handleCategoryClick) }), backBtnEl && backBtnEl.addEventListener("click", () => { categoryPageEl && categoryPageEl.classList.add("hidden"), mainContentEl && mainContentEl.classList.remove("hidden"), categoryBrandSectionsNodeList.forEach(e => { e && e.classList.add("hidden") }); const e = document.getElementById("support-section");
+    e && e.classList.add("hidden"), scrollToSection("categories", "smooth"), updateActiveNav("categories"), handleScrollButtonVisibility(), wowInstance && wowInstance.sync(), initializeMapForVisibleSection() });
+
+let bannerSlideshowIntervalId = null;
+
+function setupBannerSlideshow(categoryData) {
+    const slideshowContainer = document.querySelector("#category-page .slideshow-container");
+    if (!slideshowContainer) {
+        console.warn("Slideshow container not found.");
+        return;
+    }
+
+    const isMobileView = window.innerWidth <= 768;
+    const banners = isMobileView ? categoryData.mobileBanners : categoryData.pcBanners;
+
+    if (!banners || banners.length === 0) {
+        slideshowContainer.style.display = "none";
+        console.warn("Banner data missing or empty for the current view or category.");
+        if (bannerSlideshowIntervalId) {
+            clearInterval(bannerSlideshowIntervalId);
+            bannerSlideshowIntervalId = null;
+        }
+        for (let i = 0; i < 5; i++) { // Assuming max 5 slide elements
+            const el = document.getElementById(`slideshow-image-${i}`);
+            if (el) {
+                el.style.backgroundImage = '';
+                el.classList.remove('active');
+                el.style.opacity = '0';
+            }
+        }
+        return;
+    }
+    slideshowContainer.style.display = "block";
+
+    const slideElements = [];
+    for (let i = 0; i < 5; i++) { // Max 5 slide elements, but will use only up to banner length
+        const el = document.getElementById(`slideshow-image-${i}`);
+        if (el) slideElements.push(el);
+    }
+
+    if (slideElements.length === 0) {
+        console.warn("No slideshow DOM elements found.");
+        return;
+    }
+
+    if (bannerSlideshowIntervalId) {
+        clearInterval(bannerSlideshowIntervalId);
+        bannerSlideshowIntervalId = null;
+    }
+
+    // Use only as many banners as there are provided (max 4 now per array)
+    // or as many slide elements are available (max 5), whichever is smaller.
+    const effectiveBannersCount = Math.min(banners.length, slideElements.length);
+
+    if (effectiveBannersCount === 0) {
+        console.warn("No effective banners to display after filtering.");
+        slideElements.forEach(el => {
+             el.style.backgroundImage = '';
+             el.classList.remove('active');
+             el.style.opacity = '0';
+        });
+        return;
+    }
+
+    slideElements.forEach((el, index) => {
+        if (index < effectiveBannersCount) {
+            const bannerSrc = banners[index]; // Use banners array directly
+            const img = new Image();
+            img.onload = () => el.style.backgroundImage = `url('${bannerSrc}')`;
+            img.onerror = () => el.style.backgroundImage = `url('./public/images/placeholder.jpg')`;
+            img.src = bannerSrc;
+            el.classList.remove('active');
+            el.style.opacity = '0';
+        } else { // Hide unused slide elements
+            el.style.backgroundImage = '';
+            el.classList.remove('active');
+            el.style.opacity = '0';
+        }
+    });
+
+
+    let currentBannerIndex = 0;
+    if (slideElements[0] && effectiveBannersCount > 0) {
+        slideElements[0].style.opacity = '1';
+        slideElements[0].classList.add('active');
+    }
+
+    if (effectiveBannersCount <= 1) {
+        return;
+    }
+
+    bannerSlideshowIntervalId = setInterval(() => {
+        if (slideElements[currentBannerIndex]) {
+            slideElements[currentBannerIndex].style.opacity = '0';
+            slideElements[currentBannerIndex].classList.remove('active');
+        }
+
+        currentBannerIndex = (currentBannerIndex + 1) % effectiveBannersCount;
+
+        if (slideElements[currentBannerIndex]) {
+            if (!slideElements[currentBannerIndex].style.backgroundImage ||
+                !slideElements[currentBannerIndex].style.backgroundImage.includes(banners[currentBannerIndex])) {
+                 // Pre-set if cleared, using banners array
+                slideElements[currentBannerIndex].style.backgroundImage = `url('${banners[currentBannerIndex]}')`;
+            }
+            slideElements[currentBannerIndex].style.opacity = '1';
+            slideElements[currentBannerIndex].classList.add('active');
+        }
+    }, 5000);
+}
+
+function setupImageFallbacks() { document.querySelectorAll("img").forEach(e => { const t = e.src || e.getAttribute("data-src");
+        e.onerror = function() { if (this.src.includes("placeholder.jpg")) return void(this.onerror = null);
+            this.src = "./public/images/placeholder.jpg", console.warn(`Image failed to load, using placeholder: ${t}`) } }) }
+const submitBtnEl = document.getElementById("submit-form");
+submitBtnEl, document.querySelectorAll("#category-page .brand-item").forEach(e => { e.addEventListener("click", e => { e.preventDefault(), categoryPageEl && categoryPageEl.classList.add("hidden"), mainContentEl && mainContentEl.classList.remove("hidden"), categoryBrandSectionsNodeList.forEach(e => { e && e.classList.add("hidden") }); const t = document.getElementById("support-section");
+        t && t.classList.add("hidden"), scrollToSection("wholesale", "smooth"), updateActiveNav("wholesale"), handleScrollButtonVisibility(), initializeMapForVisibleSection(), mobileNavMenuEl && mobileNavMenuEl.classList.contains("active") && (mobileNavMenuEl.classList.remove("active"), hamburgerEl && hamburgerEl.classList.remove("active"), hamburgerEl && hamburgerEl.setAttribute("aria-expanded", "false"), document.body.style.overflow = ""), wowInstance && wowInstance.sync() }) });
+
   </script>
 </body>
 </html>
+
