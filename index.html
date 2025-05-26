@@ -15,15 +15,16 @@
   <title>Museum Zone | Luxury Retail & Wholesale in Dubai</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="./public/images/logo.png" />
+  <link rel="icon" type="image/x-icon" href="./public/images/MZ _ICON.png" />
 
   <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- Preload Important Images -->
+  <link rel="preload" as="image" href="./public/images/logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="./public/images/shopImages/shopImage1.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="./public/images/banners/watches-pc-1_1920x725.webp" fetchpriority="high"> 
+  <link rel="preload" as="image" href="./public/images/banners/watches-pc-1_1920x725.webp" fetchpriority="high">
 
   <!-- Embedded Styles (Tailwind Base & Custom CSS) -->
   <style type="text/css">
@@ -866,12 +867,12 @@ video {
       -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
-    /* Logo Styling - Reverted to original smaller sizes */
+    /* Logo Styling */
     .logo-holder img {
-        height: 2.5rem;
+        height: 2.5rem; /* Original mobile logo size */
     }
-    @media (min-width: 640px) { .logo-holder img { height: 3rem; } }
-    @media (min-width: 769px) { .logo-holder img { height: 3.5rem; } }
+    @media (min-width: 640px) { .logo-holder img { height: 3rem; } } /* Original sm logo size */
+    @media (min-width: 769px) { .logo-holder img { height: 3.5rem; } } /* Original md logo size */
 
     /* Desktop Navigation */
     .desktop-nav { display: none; }
@@ -937,11 +938,11 @@ video {
       background: url('./public/images/background.png') no-repeat center center fixed;
       background-size: cover;
       min-height: 100vh;
-      padding-top: 40px; /* Mobile navbar height (adjust if your mobile navbar height is different) */
+      padding-top: 60px; /* Mobile navbar height (adjust if your mobile navbar height is different) */
     }
     @media (min-width: 769px) {
       #category-page .content-wrapper-1 {
-        padding-top: 64px; /* Desktop navbar height (adjust if your desktop navbar height is different) */
+        padding-top: 70px; /* Desktop navbar height (adjust if your desktop navbar height is different) */
       }
     }
 
@@ -988,7 +989,7 @@ video {
       right: 50%;
       margin-left: -50vw;
       margin-right: -50vw;
-      margin-top: 0; /* Banner is first direct/indirect child of the padded .content-wrapper-1 */
+      margin-top: 0;
     }
     #category-page .banner-section .slideshow-container {
       position: relative;
@@ -997,7 +998,7 @@ video {
     /* PC/LAPTOP Banner: Height is 45% of viewport height */
     @media (min-width: 769px) {
       #category-page .banner-section .slideshow-container {
-        height: 45vh; /* Set to 45vh for PC/Laptop */
+        height: 45vh; /* Target display height for PC */
       }
     }
     /* MOBILE Banner: Display with 1920/1450 aspect ratio */
@@ -1022,7 +1023,7 @@ video {
 
     /* Category Page Content Structure */
     #category-page #category-content {
-        padding-top: 0; /* Banner is inside this, which is inside padded .content-wrapper-1 */
+        padding-top: 0;
         padding-bottom: 1rem;
     }
     #category-page #main-category-details #category-title {
@@ -1039,11 +1040,23 @@ video {
     .error { color: #FF6B6B; font-size: 0.75rem; margin-top: 0.25rem; display: none; } .error.show { display: block; }
     .success-message { background: #2ECC71; color: #1C2526; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1rem; text-align: center; display: none; } .success-message.show { display: block; }
 
-    /* Startup Animation */
-    #startup-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000000; display: flex; justify-content: center; align-items: center; z-index: 10000; opacity: 1; transition: opacity 1s ease-out; }
+    /* Startup Animation - Now with Logo */
+    #startup-animation {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: #000000; display: flex; justify-content: center; align-items: center;
+      z-index: 10000; opacity: 1; transition: opacity 1s ease-out .5s; /* Added delay to fade out */
+    }
     #startup-animation.hidden { opacity: 0; visibility: hidden; }
-    .startup-text { text-align: center; color: #FFFFFF; } .startup-text h1 { font-size: 3rem; font-weight: bold; margin-bottom: 2rem; }
-    .letter { display: inline-block; opacity: 0; transform: translateX(50px); animation: slideIn 0.5s forwards; } @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+    #startup-logo {
+        max-width: 80%; /* Prevent logo from being too wide on small screens */
+        max-height: 60vh; /* Prevent logo from being too tall */
+        width: auto; /* Maintain aspect ratio */
+        height: auto; /* Maintain aspect ratio */
+    }
+    @media (min-width: 769px) {
+      #startup-logo { max-width: 400px; } /* Adjust max-width for desktop if needed */
+    }
+
 
     /* Watch Support Services Styling */
     #template-3-design-3 .service-card img { width: 180px; height: 180px; border-radius: 8px; }
@@ -1070,21 +1083,19 @@ video {
       #template-3-design-3 .service-card img { width: 100px; height: 100px; }
       #template-3-design-3 .service-card h4 { font-size: 1rem; }
       #template-3-design-3 .service-card p { font-size: 0.875rem; }
-      .startup-text h1 { font-size: 2rem; }
+      #startup-logo { max-width: 60%; }
     }
-    @media (min-width: 769px) and (max-width: 1023px) { .startup-text h1 { font-size: 4rem; } }
-    @media (min-width: 1024px) { .startup-text h1 { font-size: 6rem; } .container { max-width: 1280px; margin: 0 auto; } }
+    @media (min-width: 769px) and (max-width: 1023px) { #startup-logo { max-width: 300px; } }
+    @media (min-width: 1024px) { .container { max-width: 1280px; margin: 0 auto; } }
     /* === YOUR CUSTOM CSS ENDS HERE === */
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 </head>
 <body class="font-roboto">
 
-  <!-- Startup Animation -->
+  <!-- Startup Animation with Logo -->
   <div id="startup-animation">
-    <div class="startup-text">
-      <h1 id="startup-title" class="wow fadeInDown" data-wow-duration="1s"></h1>
-    </div>
+    <img src="./public/images/logo.png" alt="Museum Zone Loading" id="startup-logo" class="wow zoomIn" data-wow-duration="1.5s" data-wow-delay="0.2s">
   </div>
 
   <!-- Preloader -->
@@ -1217,6 +1228,7 @@ video {
             <div class="slideshow-image" id="slideshow-image-2"></div>
             <div class="slideshow-image" id="slideshow-image-3"></div>
             <div class="slideshow-image" id="slideshow-image-4"></div>
+            <!-- Add more if needed for categories with > 5 banners, and adjust JS -->
           </div>
         </div>
         <div id="main-category-details" class="max-w-6xl mx-auto px-4">
@@ -1471,60 +1483,68 @@ const navbarEl = document.querySelector(".navbar-fixed-top"),
     categoryBrandSectionsNodeList = document.querySelectorAll("#category-page .brand-section"),
     mapIframeOriginalSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1804.1007023612674!2d55.29632758147585!3d25.26380943330753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f433f2f9aa46f%3A0xe5dcbdfc346ea9a0!2sMuseum%20Zone!5e0!3m2!1sen!2sin!4v1746981367667!5m2!1sen!2sin";
 
-// PC images source e.g., 1920x725px. Mobile images source e.g., 1920x1450px. (Now 4 images per view)
+// PC images source e.g., 1920x725px. Mobile images source e.g., 1920x1450px.
 const categoriesData = {
-    watches: {
+    watches: { // 6 PC, 6 Mobile
         title: "Watches",
-        pcBanners: [ // Max 4 for PC
-            "./public/images/banners/watches-pc-1.jpg",
+        pcBanners: [
+            "./public/images/banners/watches-pc-1.jpg", // Ensure these paths are correct
             "./public/images/banners/watches-pc-2.jpg",
             "./public/images/banners/watches-pc-3.jpg",
-            "./public/images/banners/watches-pc-4.jpg"
+            "./public/images/banners/watches-pc-4.jpg",
+            "./public/images/banners/watches-pc-5.jpg", // Only 5 slots in HTML currently
+            "./public/images/banners/watches-pc-6.jpg"
         ],
-        mobileBanners: [ // Max 4 for Mobile
+        mobileBanners: [
             "./public/images/banners/watches-mobile-1.jpg",
             "./public/images/banners/watches-mobile-2.jpg",
             "./public/images/banners/watches-mobile-3.jpg",
-            "./public/images/banners/watches-mobile-4.jpg"
+            "./public/images/banners/watches-mobile-4.jpg",
+            "./public/images/banners/watches-mobile-5.jpg",
+            "./public/images/banners/watches-mobile-6.jpg"
         ]
     },
-    perfumes: {
+    perfumes: { // 7 PC, 10 Mobile
         title: "Perfumes",
         pcBanners: [
             "./public/images/banners/perfumes-pc-1.jpg",
             "./public/images/banners/perfumes-pc-2.jpg",
             "./public/images/banners/perfumes-pc-3.jpg",
-            "./public/images/banners/perfumes-pc-4.jpg"
+            "./public/images/banners/perfumes-pc-4.jpg",
+            "./public/images/banners/perfumes-pc-5.jpg",
+            "./public/images/banners/perfumes-pc-6.jpg",
+            "./public/images/banners/perfumes-pc-7.jpg"
         ],
         mobileBanners: [
             "./public/images/banners/perfumes-mobile-1.jpg",
             "./public/images/banners/perfumes-mobile-2.jpg",
             "./public/images/banners/perfumes-mobile-3.jpg",
-            "./public/images/banners/perfumes-mobile-4.jpg"
+            "./public/images/banners/perfumes-mobile-4.jpg",
+            "./public/images/banners/perfumes-mobile-5.jpg",
+            "./public/images/banners/perfumes-mobile-6.jpg",
+            "./public/images/banners/perfumes-mobile-7.jpg",
+            "./public/images/banners/perfumes-mobile-8.jpg",
+            "./public/images/banners/perfumes-mobile-9.jpg",
+            "./public/images/banners/perfumes-mobile-10.jpg"
         ]
     },
-    eyewear: {
+    eyewear: { // 2 PC, 3 Mobile
         title: "Eyewear",
         pcBanners: [
             "./public/images/banners/eyewear-pc-1.jpg",
-            "./public/images/banners/eyewear-pc-2.jpg",
-            "./public/images/banners/eyewear-pc-3.jpg",
-            "./public/images/banners/eyewear-pc-4.jpg"
+            "./public/images/banners/eyewear-pc-2.jpg"
         ],
         mobileBanners: [
             "./public/images/banners/eyewear-mobile-1.jpg",
             "./public/images/banners/eyewear-mobile-2.jpg",
-            "./public/images/banners/eyewear-mobile-3.jpg",
-            "./public/images/banners/eyewear-mobile-4.jpg"
+            "./public/images/banners/eyewear-mobile-3.jpg"
         ]
     },
-    bags: {
+    bags: { // 2 PC, 4 Mobile
         title: "Bags",
         pcBanners: [
             "./public/images/banners/bags-pc-1.jpg",
-            "./public/images/banners/bags-pc-2.jpg",
-            "./public/images/banners/bags-pc-3.jpg",
-            "./public/images/banners/bags-pc-4.jpg"
+            "./public/images/banners/bags-pc-2.jpg"
         ],
         mobileBanners: [
             "./public/images/banners/bags-mobile-1.jpg",
@@ -1533,28 +1553,27 @@ const categoriesData = {
             "./public/images/banners/bags-mobile-4.jpg"
         ]
     },
-    electronics: {
+    electronics: { // 3 PC, 6 Mobile
         title: "Electronics",
         pcBanners: [
             "./public/images/banners/electronics-pc-1.jpg",
             "./public/images/banners/electronics-pc-2.jpg",
-            "./public/images/banners/electronics-pc-3.jpg",
-            "./public/images/banners/electronics-pc-4.jpg"
+            "./public/images/banners/electronics-pc-3.jpg"
         ],
         mobileBanners: [
             "./public/images/banners/electronics-mobile-1.jpg",
             "./public/images/banners/electronics-mobile-2.jpg",
             "./public/images/banners/electronics-mobile-3.jpg",
-            "./public/images/banners/electronics-mobile-4.jpg"
+            "./public/images/banners/electronics-mobile-4.jpg",
+            "./public/images/banners/electronics-mobile-5.jpg",
+            "./public/images/banners/electronics-mobile-6.jpg"
         ]
     },
-    accessories: {
+    accessories: { // 2 PC, 4 Mobile
         title: "Accessories",
         pcBanners: [
             "./public/images/banners/accessories-pc-1.jpg",
-            "./public/images/banners/accessories-pc-2.jpg",
-            "./public/images/banners/accessories-pc-3.jpg",
-            "./public/images/banners/accessories-pc-4.jpg"
+            "./public/images/banners/accessories-pc-2.jpg"
         ],
         mobileBanners: [
             "./public/images/banners/accessories-mobile-1.jpg",
@@ -1601,19 +1620,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function runStartupAnimation() {
     try {
-        const e = document.getElementById("startup-animation");
-        if (!e) return void initializeWOW();
-        const t = sessionStorage.getItem("lastAnimationTime"),
-            a = Date.now();
-        if (t && a - t < 3e5 && !sessionStorage.getItem("forceStartup")) return e.style.display = "none", void initializeWOW();
+        const startupAnimEl = document.getElementById("startup-animation");
+        if (!startupAnimEl) return void initializeWOW();
+
+        const lastAnimationTime = sessionStorage.getItem("lastAnimationTime");
+        const currentTime = Date.now();
+
+        if (lastAnimationTime && (currentTime - lastAnimationTime < 300000) && !sessionStorage.getItem("forceStartup")) { // 5 minutes
+            startupAnimEl.style.display = "none";
+            initializeWOW();
+            startupAnimationCompleted = true; // Mark as completed
+            handleScrollButtonVisibility(); // Check scroll button state
+            return;
+        }
         sessionStorage.removeItem("forceStartup");
-        const o = document.getElementById("startup-title");
-        if (!o) return e.style.display = "none", void initializeWOW();
-        o.innerHTML = "Museum Zone".split("").map((e, t) => `<span class="letter" style="animation-delay: ${t*.05}s">${" "===e?"&nbsp;":e}</span>`).join(""), e.classList.remove("hidden"), e.style.opacity = "1", e.style.visibility = "visible", preloadIntroImages(), setTimeout(() => { e.classList.add("hidden"), setTimeout(() => { e.style.display = "none", sessionStorage.setItem("lastAnimationTime", a), initializeWOW(), startupAnimationCompleted = !0, handleScrollButtonVisibility() }, 1e3) }, 2500)
-    } catch (t) {
-        console.error("Startup animation error:", t);
-        const a = document.getElementById("startup-animation");
-        a && (a.style.display = "none"), initializeWOW()
+
+        // For logo animation, we don't need to manipulate startup-title
+        // The logo is already in HTML with WOW.js classes
+        startupAnimEl.classList.remove("hidden");
+        startupAnimEl.style.opacity = "1";
+        startupAnimEl.style.visibility = "visible";
+        preloadIntroImages();
+
+        setTimeout(() => {
+            startupAnimEl.classList.add("hidden");
+            setTimeout(() => {
+                startupAnimEl.style.display = "none";
+                sessionStorage.setItem("lastAnimationTime", currentTime);
+                initializeWOW(); // Initialize WOW.js after animation
+                startupAnimationCompleted = true;
+                handleScrollButtonVisibility();
+            }, 1000); // Match CSS transition for opacity
+        }, 2000); // Duration logo is visible (1.5s animation + 0.5s pause)
+    } catch (error) {
+        console.error("Startup animation error:", error);
+        const startupAnimEl = document.getElementById("startup-animation");
+        if (startupAnimEl) startupAnimEl.style.display = "none";
+        initializeWOW();
+        startupAnimationCompleted = true;
+        handleScrollButtonVisibility();
     }
 }
 hamburgerEl && mobileNavMenuEl && hamburgerEl.addEventListener("click", () => {
@@ -1703,48 +1748,45 @@ function setupBannerSlideshow(categoryData) {
     const isMobileView = window.innerWidth <= 768;
     const banners = isMobileView ? categoryData.mobileBanners : categoryData.pcBanners;
 
-    if (!banners || banners.length === 0) {
+    // Determine the maximum number of slides we can actually display based on HTML
+    const availableSlideElements = [];
+    for (let i = 0; i < 5; i++) { // Check for up to 5 slides (slideshow-image-0 to slideshow-image-4)
+        const el = document.getElementById(`slideshow-image-${i}`);
+        if (el) availableSlideElements.push(el);
+        else break; // Stop if an ID is missing, assuming consecutive IDs
+    }
+    
+    const maxDisplayableSlides = availableSlideElements.length;
+
+    if (!banners || banners.length === 0 || maxDisplayableSlides === 0) {
         slideshowContainer.style.display = "none";
-        console.warn("Banner data missing or empty for the current view or category.");
+        console.warn("Banner data missing, empty, or no slide elements found.");
         if (bannerSlideshowIntervalId) {
             clearInterval(bannerSlideshowIntervalId);
             bannerSlideshowIntervalId = null;
         }
-        for (let i = 0; i < 5; i++) { // Assuming max 5 slide elements
-            const el = document.getElementById(`slideshow-image-${i}`);
-            if (el) {
-                el.style.backgroundImage = '';
-                el.classList.remove('active');
-                el.style.opacity = '0';
-            }
-        }
+        availableSlideElements.forEach(el => { // Clear any existing content on available slides
+            el.style.backgroundImage = '';
+            el.classList.remove('active');
+            el.style.opacity = '0';
+        });
         return;
     }
     slideshowContainer.style.display = "block";
 
-    const slideElements = [];
-    for (let i = 0; i < 5; i++) { // Max 5 slide elements, but will use only up to banner length
-        const el = document.getElementById(`slideshow-image-${i}`);
-        if (el) slideElements.push(el);
-    }
-
-    if (slideElements.length === 0) {
-        console.warn("No slideshow DOM elements found.");
-        return;
-    }
 
     if (bannerSlideshowIntervalId) {
         clearInterval(bannerSlideshowIntervalId);
         bannerSlideshowIntervalId = null;
     }
 
-    // Use only as many banners as there are provided (max 4 now per array)
-    // or as many slide elements are available (max 5), whichever is smaller.
-    const effectiveBannersCount = Math.min(banners.length, slideElements.length);
+    // Use only as many banners as there are provided in the category's array,
+    // up to the number of physical HTML slots available.
+    const effectiveBanners = banners.slice(0, Math.min(banners.length, maxDisplayableSlides));
 
-    if (effectiveBannersCount === 0) {
-        console.warn("No effective banners to display after filtering.");
-        slideElements.forEach(el => {
+    if (effectiveBanners.length === 0) {
+        console.warn("No effective banners to display after filtering for available slots.");
+        availableSlideElements.forEach(el => {
              el.style.backgroundImage = '';
              el.classList.remove('active');
              el.style.opacity = '0';
@@ -1752,16 +1794,17 @@ function setupBannerSlideshow(categoryData) {
         return;
     }
 
-    slideElements.forEach((el, index) => {
-        if (index < effectiveBannersCount) {
-            const bannerSrc = banners[index]; // Use banners array directly
+    // Populate only the necessary slide elements
+    availableSlideElements.forEach((el, index) => {
+        if (index < effectiveBanners.length) {
+            const bannerSrc = effectiveBanners[index];
             const img = new Image();
             img.onload = () => el.style.backgroundImage = `url('${bannerSrc}')`;
             img.onerror = () => el.style.backgroundImage = `url('./public/images/placeholder.jpg')`;
             img.src = bannerSrc;
             el.classList.remove('active');
             el.style.opacity = '0';
-        } else { // Hide unused slide elements
+        } else { // Hide unused slide elements among the available ones
             el.style.backgroundImage = '';
             el.classList.remove('active');
             el.style.opacity = '0';
@@ -1770,31 +1813,31 @@ function setupBannerSlideshow(categoryData) {
 
 
     let currentBannerIndex = 0;
-    if (slideElements[0] && effectiveBannersCount > 0) {
-        slideElements[0].style.opacity = '1';
-        slideElements[0].classList.add('active');
+    if (availableSlideElements[0] && effectiveBanners.length > 0) {
+        availableSlideElements[0].style.opacity = '1';
+        availableSlideElements[0].classList.add('active');
     }
 
-    if (effectiveBannersCount <= 1) {
+    if (effectiveBanners.length <= 1) { // No slideshow needed for 0 or 1 image
         return;
     }
 
     bannerSlideshowIntervalId = setInterval(() => {
-        if (slideElements[currentBannerIndex]) {
-            slideElements[currentBannerIndex].style.opacity = '0';
-            slideElements[currentBannerIndex].classList.remove('active');
+        if (availableSlideElements[currentBannerIndex]) {
+            availableSlideElements[currentBannerIndex].style.opacity = '0';
+            availableSlideElements[currentBannerIndex].classList.remove('active');
         }
 
-        currentBannerIndex = (currentBannerIndex + 1) % effectiveBannersCount;
+        currentBannerIndex = (currentBannerIndex + 1) % effectiveBanners.length;
 
-        if (slideElements[currentBannerIndex]) {
-            if (!slideElements[currentBannerIndex].style.backgroundImage ||
-                !slideElements[currentBannerIndex].style.backgroundImage.includes(banners[currentBannerIndex])) {
-                 // Pre-set if cleared, using banners array
-                slideElements[currentBannerIndex].style.backgroundImage = `url('${banners[currentBannerIndex]}')`;
+        if (availableSlideElements[currentBannerIndex]) {
+            // Ensure image is set before fading in
+            if (!availableSlideElements[currentBannerIndex].style.backgroundImage ||
+                !availableSlideElements[currentBannerIndex].style.backgroundImage.includes(effectiveBanners[currentBannerIndex])) {
+                availableSlideElements[currentBannerIndex].style.backgroundImage = `url('${effectiveBanners[currentBannerIndex]}')`;
             }
-            slideElements[currentBannerIndex].style.opacity = '1';
-            slideElements[currentBannerIndex].classList.add('active');
+            availableSlideElements[currentBannerIndex].style.opacity = '1';
+            availableSlideElements[currentBannerIndex].classList.add('active');
         }
     }, 5000);
 }
@@ -1809,4 +1852,3 @@ submitBtnEl, document.querySelectorAll("#category-page .brand-item").forEach(e =
   </script>
 </body>
 </html>
-
