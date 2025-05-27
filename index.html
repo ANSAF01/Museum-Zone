@@ -18,14 +18,14 @@
   <link rel="icon" type="image/x-icon" href="./public/images/MZ _ICON.png" />
 
   <!-- External CSS -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- Preload Important Images -->
   <link rel="preload" as="image" href="./public/images/logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="./public/images/shopImages/shopImage1.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="./public/images/banners/watches-pc-1.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="./public/images/banners/watches-pc-1.png" fetchpriority="high">
 
   <!-- Embedded Styles (Tailwind Base & Custom CSS) -->
   <style type="text/css">
@@ -1176,11 +1176,11 @@ video {
           <p class="text-base sm:text-lg md:text-xl mb-8 text-gray-200">Explore our curated selection of luxury products, available for both retail and wholesale purchase.</p>
           <div class="category-section">
             <div class="category-item wow fadeIn" data-wow-delay="0.1s" data-category="watches"><img src="./public/images/banners/Category_Watches.jpg" alt="Watches" loading="eager" onerror="this.src='./public/images/placeholder.jpg'"><p>Watches</p></div>
-            <div class="category-item wow fadeIn" data-wow-delay="0.2s" data-category="perfumes"><img src="./public/images/banners/Category_Perfumes.jpg" alt="Perfumes" loading="eager" onerror="this.src='./public/images/placeholder.jpg'"><p>Perfumes</p></div>
-            <div class="category-item wow fadeIn" data-wow-delay="0.3s" data-category="eyewear"><img src="./public/images/banners/Category_Eyewear.jpg" alt="Eyewear" loading="eager" onerror="this.src='./public/images/placeholder.jpg'"><p>Eyewear</p></div>
-            <div class="category-item wow fadeIn" data-wow-delay="0.4s" data-category="bags"><img src="./public/images/banners/Category_Bags.jpg" alt="Bags" loading="eager" onerror="this.src='./public/images/placeholder.jpg'"><p>Bags</p></div>
-            <div class="category-item wow fadeIn" data-wow-delay="0.5s" data-category="electronics"><img src="./public/images/banners/Category_Eletronics.jpg" alt="Electronics" loading="eager" onerror="this.src='./public/images/placeholder.jpg'"><p>Electronics</p></div>
-            <div class="category-item wow fadeIn" data-wow-delay="0.6s" data-category="accessories"><img src="./public/images/banners/Category_Accessories.jpg" alt="Accessories" loading="eager" onerror="this.src='./public/images/placeholder.jpg'"><p>Accessories</p></div>
+            <div class="category-item wow fadeIn" data-wow-delay="0.2s" data-category="perfumes"><img src="./public/images/banners/Category_Perfumes.jpg" alt="Perfumes" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Perfumes</p></div>
+            <div class="category-item wow fadeIn" data-wow-delay="0.3s" data-category="eyewear"><img src="./public/images/banners/Category_Eyewear.jpg" alt="Eyewear" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Eyewear</p></div>
+            <div class="category-item wow fadeIn" data-wow-delay="0.4s" data-category="bags"><img src="./public/images/banners/Category_Bags.jpg" alt="Bags" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Bags</p></div>
+            <div class="category-item wow fadeIn" data-wow-delay="0.5s" data-category="electronics"><img src="./public/images/banners/Category_Eletronics.jpg" alt="Electronics" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Electronics</p></div>
+            <div class="category-item wow fadeIn" data-wow-delay="0.6s" data-category="accessories"><img src="./public/images/banners/Category_Accessories.jpg" alt="Accessories" loading="lazy" onerror="this.src='./public/images/placeholder.jpg'"><p>Accessories</p></div>
           </div>
         </div>
       </section>
@@ -1201,15 +1201,14 @@ video {
         </div>
       </section>
 
-<!-- Main Page Footer -->
-<footer class="bg-black text-white px-4 py-6 sm:py-8 grid md:grid-cols-2 gap-6 sm:gap-8" id="main-page-footer">
-  <div class="wow fadeInUp flex flex-col justify-center items-center space-y-4 text-center" data-wow-delay="0.1s" data-wow-duration="0.8s">
-    <h3 class="text-lg sm:text-xl font-semibold">Museum Zone</h3>
-    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
-      <strong>Address:</strong><br>Museum Zone<br>Near Dubai Museum, Bur Dubai<br>Dubai - UAE<br>Tel: (04) 325 8834
-    </p>
-    <!-- Social Media Icons -->
-    <div class="flex items-center justify-center gap-3 flex-wrap">
+      <!-- Main Page Footer -->
+      <footer class="bg-black text-white px-4 py-6 sm:py-8 grid md:grid-cols-2 gap-6 sm:gap-8" id="main-page-footer">
+        <div class="wow fadeInUp flex flex-col justify-center items-center space-y-4 text-center" data-wow-delay="0.1s" data-wow-duration="0.8s">
+          <h3 class="text-lg sm:text-xl font-semibold">Museum Zone</h3>
+          <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+            <strong>Address:</strong><br>Museum Zone<br>Near Dubai Museum, Bur Dubai<br>Dubai - UAE<br>Tel: (04) 325 8834
+          </p>
+              <div class="flex items-center justify-center gap-3 flex-wrap">
       <!-- Facebook Icon -->
       <a href="https://www.facebook.com/museumzoneshop" target="_blank" class="cursor-pointer transition-all duration-300 hover:opacity-80">
         <i class="fa-brands fa-facebook fa-2xs" style="color: #1877F2; font-size: 1.25rem;"></i>
@@ -1223,16 +1222,14 @@ video {
         <i class="fa-brands fa-whatsapp fa-2xs" style="color: #25D366; font-size: 1.25rem;"></i>
       </a>
     </div>
-  </div>
-  <div class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.8s">
-    <iframe title="Museum Zone Location" width="100%" height="150" class="rounded-md" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade" aria-label="Museum Zone Location Map"></iframe>
-  </div>
-  <div class="col-span-full border-t border-gray-700 pt-4 text-center wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="0.8s">
-    <p class="text-xs text-gray-500">© 2025 Museum Zone. All rights reserved.</p>
-  </div>
-</footer>
-</div> <!-- End .content-wrapper -->
-</div> <!-- End #main-content -->
+        </div>
+        <div class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.8s">
+          <iframe title="Museum Zone Location" width="100%" height="150" class="rounded-md" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Museum Zone Location Map"></iframe>
+        </div>
+        <div class="col-span-full border-t border-gray-700 pt-4 text-center wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="0.8s"><p class="text-xs text-gray-500">© 2025 Museum Zone. All rights reserved.</p></div>
+      </footer>
+    </div> <!-- End .content-wrapper -->
+  </div> <!-- End #main-content -->
 
 
   <!-- Category Page Area (Initially Hidden) -->
@@ -1298,32 +1295,32 @@ video {
                   <h3 class="text-2xl font-semibold mb-6 text-center text-black">Product Repair Centre</h3>
                   <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div class="service-card p-4 bg-gray-50 rounded-lg shadow-lg text-center">
-                      <img src="./public/images/services/service-1.png" alt="Watch Facelift and Customisation" class="object-cover mx-auto mb-4" loading="eager">
+                      <img src="./public/images/services/service-1.png" alt="Watch Facelift and Customisation" class="object-cover mx-auto mb-4" loading="lazy">
                       <h4 class="text-xl font-medium text-black">Watch Facelift & Customisation</h4>
                       <p class="text-base text-black">Custom designs and aesthetic upgrades.</p>
                     </div>
                     <div class="service-card p-4 bg-gray-50 rounded-lg shadow-lg text-center">
-                      <img src="./public/images/services/service-2.png" alt="Battery Change and Movement Service" class="object-cover mx-auto mb-4" loading="eager">
+                      <img src="./public/images/services/service-2.png" alt="Battery Change and Movement Service" class="object-cover mx-auto mb-4" loading="lazy">
                       <h4 class="text-xl font-medium text-black">Battery Change & Movement Service</h4>
                       <p class="text-base text-black">Professional battery replacement.</p>
                     </div>
                     <div class="service-card p-4 bg-gray-50 rounded-lg shadow-lg text-center">
-                      <img src="./public/images/services/service-3.png" alt="Band Repair and Restoration" class="object-cover mx-auto mb-4" loading="eager">
+                      <img src="./public/images/services/service-3.png" alt="Band Repair and Restoration" class="object-cover mx-auto mb-4" loading="lazy">
                       <h4 class="text-xl font-medium text-black">Band Repair & Restoration</h4>
                       <p class="text-base text-black">Restore your watch band.</p>
                     </div>
                     <div class="service-card p-4 bg-gray-50 rounded-lg shadow-lg text-center">
-                      <img src="./public/images/services/service-4.png" alt="Watch Polish and Case Restoration" class="object-cover mx-auto mb-4" loading="eager">
+                      <img src="./public/images/services/service-4.png" alt="Watch Polish and Case Restoration" class="object-cover mx-auto mb-4" loading="lazy">
                       <h4 class="text-xl font-medium text-black">Watch Polish & Case Restoration</h4>
                       <p class="text-base text-black">Expert polishing and restoration.</p>
                     </div>
                     <div class="service-card p-4 bg-gray-50 rounded-lg shadow-lg text-center">
-                      <img src="./public/images/services/service-5.webp" alt="Dial and Hands Relume Restoration" class="object-cover mx-auto mb-4" loading="eager">
+                      <img src="./public/images/services/service-5.webp" alt="Dial and Hands Relume Restoration" class="object-cover mx-auto mb-4" loading="lazy">
                       <h4 class="text-xl font-medium text-black">Dial & Hands Relume Restoration</h4>
                       <p class="text-base text-black">Professional reluming.</p>
                     </div>
                     <div class="service-card p-4 bg-gray-50 rounded-lg shadow-lg text-center">
-                      <img src="./public/images/services/service-6.jpg" alt="Crystal Glass Replacement" class="object-cover mx-auto mb-4" loading="eager">
+                      <img src="./public/images/services/service-6.jpg" alt="Crystal Glass Replacement" class="object-cover mx-auto mb-4" loading="lazy">
                       <h4 class="text-xl font-medium text-black">Crystal Glass Replacement</h4>
                       <p class="text-base text-black">Replace damaged crystal glass.</p>
                     </div>
@@ -1486,7 +1483,7 @@ video {
     </div>
         </div>
         <div class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.8s">
-          <iframe title="Museum Zone Location" width="100%" height="150" class="rounded-md" style="border:0;" allowfullscreen loading="eager" referrerpolicy="no-referrer-when-downgrade" aria-label="Museum Zone Location Map"></iframe>
+          <iframe title="Museum Zone Location" width="100%" height="150" class="rounded-md" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Museum Zone Location Map"></iframe>
         </div>
         <div class="col-span-full border-t border-gray-700 pt-4 text-center wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="0.8s"><p class="text-xs text-gray-500">© 2025 Museum Zone. All rights reserved.</p></div>
       </footer>
